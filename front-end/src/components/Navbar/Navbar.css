@@ -23,16 +23,20 @@
   top: 0;
   left: 0;
   z-index: 2;
+  font-family: b yekan;
 }
 .navbar .men_right {
   display: flex;
   gap: 10px;
-  top: 15px;
+  top: 8px;
   right: 20px;
   position: relative;
   align-items: center;
   height: max-content;
   padding-right: 10px;
+}
+.navbar svg {
+  fill: #ffff;
 }
 .navbar .men_right a {
   display: flex;
@@ -123,13 +127,13 @@
   border-radius: 50%;
 }
 
-.svg-profile{
+.svg-profile {
   position: static;
   position: absolute;
   top: -12px;
   left: 22px;
 }
-.svg-profile path{
+.svg-profile path {
   fill: #d95c5c;
 }
 
@@ -140,6 +144,7 @@
   width: 250px;
   border-radius: 10px;
   box-shadow: 0 0 5px black;
+  background-color: rgba(0, 0, 0, 0.6);
   display: none;
 }
 .div-ashtrak {
@@ -176,12 +181,12 @@
 }
 .tanzimat {
   text-decoration: none;
-  color: black;
+  color: #ffff;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10px;
   height: 40px;
+  padding: 5px 3px 5px 8px;
 }
 .tanzimat span {
   position: relative;
@@ -200,22 +205,23 @@
   border: 0px;
   align-items: center;
   cursor: pointer;
-
+  font-family: b yekan;
+  padding: 5px 3px 5px 3px;
 }
 .div-data-profile ul {
   list-style: none;
   direction: rtl;
-  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 13px;
+  padding: 0;
 }
 .div-data-profile ul li a {
   width: 100%;
   padding: 0 10px;
   display: block;
   text-decoration: none;
-  color: black;
+  color: rgb(255, 255, 255);
   cursor: pointer;
 }
 .div-data-profile .tanzimat:hover,
