@@ -6,13 +6,15 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  direction: rtl;
 }
 /* ----------------------------------------------------- part 1 ------------------------------------------------------------ */
 .footer__navbar__fixed {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  padding: 0.8rem;
+  height: 40px;
+  line-height: 40px;
   justify-content: space-evenly;
   color: white;
   background-color: rgb(41, 40, 40);
@@ -140,8 +142,10 @@
 .footer__fack__container {
   display: none;
   flex-wrap: wrap;
+  direction: rtl;
   width: 100%;
-  padding: 0.2rem;
+  height: 50px;
+  line-height: 20px;
   justify-content: space-evenly;
   color: rgb(139, 139, 139);
   background-color: rgb(41, 40, 40);
