@@ -1,25 +1,58 @@
 
 /* /////////////////////////  start-slider  ////////////////////// */
-.slideBox{
-  /* margin: 25px 0; */
+.box{
+  padding: 10px 0;
+  position: relative;
+}
+.divtitle{
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-right: 25px;
+  padding: 5px;
+  width: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.divtitle:hover .btnshowallmoves{
+  opacity: 1;
+  /* display: flex; */
 }
 
-
-.slider-moveis1{
+.p_title{
+  /* background-color: red; */
+  width: max-content;
   color: wheat;
-  margin: 50px 0 !important;
+  font-size: 23px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.btnshowallmoves{
+  width: 120px;
+  color: wheat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:5px;
+  cursor: pointer;
+  opacity: -1;
+  transition: all 0.5s;
+  /* display: none; */
 }
 
 .swiper {
   width: 100%;
   height: max-content;
   position: relative;
-  margin-top: -70px;
+  margin-top: 40px;
   margin-bottom: 20px;
   z-index: 105;
 }
 .swiper-wrapper{
-  margin: 30px 0;
+  margin: 20px 0 !important;
   z-index: 101;
   display: flex;
 }
@@ -27,9 +60,7 @@
 .swiper-slide {
   width: 225px !important;
   height: 320px !important;
-  margin: 0 5px !important;
-  /* margin-top: -20px !important; */
-  /* transform: translateY(-20px); */
+  margin: 30px 5px !important;
   text-align: center;
   position: relative;
   font-size: 20px;
@@ -59,19 +90,14 @@
 
 .swiper-slide img {
   display: block;
+  position: relative;
+  top:-10px;
   width: 100%;
   height: 90%;
   object-fit:cover;
   object-position: 30%;
   border-radius: 20px;
   z-index: 10;
-}
-
-
-.swiper-pagination2 span{
-  background: red !important;
-  color: wheat !important;
-  display: none;
 }
 
 @media only screen and (max-width:1200px) {
@@ -83,14 +109,26 @@
     object-position: 30%;
   }
 }
-@media only screen and (max-width:800px) {
+@media only screen and (max-width:800px) {  
+  .swiper-wrapper{
+    margin: 0px 5px !important;
+    padding-bottom: 10px !important;
+    display: flex;
+  }
   .swiper-slide {
+    position: relative;
+    top: -10px;
     width: 150px !important;
     height: 200px !important;
+    z-index: 10;
   }
   .swiper-slide img {
-    margin-top: 15px;
+    margin-top: 10px;
     object-position: 30%;
+  }
+  .swiper-slide .borders{
+    bottom: -25px;
+    z-index: 14;
   }
 }
 
@@ -118,6 +156,7 @@
   top: 30px;
   margin-bottom: 80px;
   justify-content: space-around;
+  z-index: 5;
 }
 .Show_data_movie1::after,
 .Show_data_movie2::after,

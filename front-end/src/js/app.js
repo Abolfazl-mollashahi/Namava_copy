@@ -320,20 +320,20 @@ let Show_close_lineSlide = (lines, divs) => {
 // swiper slider all
 document.addEventListener("DOMContentLoaded", function () {
   var swiper = new Swiper('.swiper', {
-    slidesPerView: 5,
-    spaceBetween: 1050,
+    slidesPerView: 6,
+    spaceBetween: 1000,
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
     breakpoints: {
       501: {
-        slidesPerView: 5,
-        slidesPerGroup: 1043,
+        slidesPerView: 2,
+        slidesPerGroup: 5,
       },
       768: {
-        slidesPerView: 4,
-        slidesPerGroup: 1300,
+        slidesPerView: 6,
+        slidesPerGroup: 600,
       },
       998: {
         slidesPerView: 5,
@@ -344,8 +344,8 @@ document.addEventListener("DOMContentLoaded", function () {
         slidesPerGroup: 2600,
       },
       1488: {
-        slidesPerView: 5,
-        slidesPerGroup: 3000,
+        slidesPerView: 2,
+        slidesPerGroup: 5,
       },
     },
   });
