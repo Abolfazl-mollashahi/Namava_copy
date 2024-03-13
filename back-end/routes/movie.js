@@ -1,7 +1,7 @@
 const express = require("express");
 const movieController = require("./../controller/movie");
-const authMiddleware = require("./../middleware/auth");
-const isAdminMiddleware = require("./../middleware/isAdmin");
+const authMiddlware = require("./../middleware/auth");
+const isAdminMiddlware = require("./../middleware/isAdmin");
 
 const router = express.Router();
 
@@ -9,8 +9,10 @@ router.route("/:title").get(movieController.getOne);
 
 router
   .route("/create")
-  .post(authMiddleware, isAdminMiddleware, movieController.createMovie);
+  .post(authMiddlware, isAdminMiddlware, movieController.createMovie);
 
-router.route("/comment").post(movieController.addComment);
+router
+  .route("/:id")
+  .delete(authMiddlware, isAdminMiddlware, movieController.remove);
 
 module.exports = router;

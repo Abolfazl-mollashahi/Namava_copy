@@ -3,7 +3,7 @@ const userModel = require("./../models/user");
 
 module.exports = async (req, res, next) => {
   const authHeader = req.header("Authorization")?.split(" ");
-  if (authHeader?.length !== 2) {
+  if (!authHeader) {
     return res.status(403).json({
       message: "This api protected",
     });

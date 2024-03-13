@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const movieSchema = new mongoose.Schema(
   {
-    title: {
+    name: {
       type: String,
       required: true,
     },
@@ -10,27 +10,48 @@ const movieSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    cover: {
+      type: String,
+      required: true,
+    },
+    href: {
+      type: String,
+      required: true,
+    },
+    categoryId: {
+      type: mongoose.Types.ObjectId,
+      ref: "category",
+      required: true,
+    },
+    time: {
+      type: Number,
+      required: true,
+    },
     director: {
       type: String,
       required: true,
     },
     actors: [String],
-    genres: [String],
+    grouping: [String],
     releaseYear: {
       type: Number,
       required: true,
     },
-    screeningStatus: {
+    publicationStatus: {
       type: String,
       default: "released",
     },
-    Translation: {
+    translation: {
       type: String,
       default: "OriginalLanguage",
     },
     ageLimit: {
       type: Number,
       default: 10,
+    },
+    preview: {
+      type: String,
+      required: true,
     },
   },
   { timestamps: true }

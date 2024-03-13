@@ -3,26 +3,34 @@ const commentModel = require("./../models/comment");
 
 exports.createMovie = async (req, res) => {
   const {
-    title,
+    name,
     description,
+    href,
+    categoryId,
+    time,
     director,
     actors,
-    genres,
+    grouping,
     releaseYear,
-    screeningStatus,
-    Translation,
+    publicationStatus,
+    translation,
     ageLimit,
   } = req.body;
   const createMovie = await movieModel.create({
-    title,
+    name,
     description,
+    cover: req.file.filename,
+    href,
+    categoryId,
+    time,
     director,
     actors,
-    genres,
+    grouping,
     releaseYear,
-    screeningStatus,
-    Translation,
+    publicationStatus,
+    translation,
     ageLimit,
+    preview: req.file.filename,
   });
   if (createMovie) {
     return res.status(201).json({
@@ -32,23 +40,6 @@ exports.createMovie = async (req, res) => {
   return res.status(500).json({
     message: "Server Error",
   });
-};
-
-exports.addComment = async (req, res) => {
-  const { body, movie, score } = req.body;
-  const createComment = await commentModel.create({
-    body,
-    movie,
-    score,
-  });
-
-  if (!createComment) {
-    returnres.status(500).json({
-      message: "Server Error",
-    });
-  }
-
-  return res.status(201).json({ message: "Set Comment Successfully" });
 };
 
 exports.getOne = async (req, res) => {
@@ -65,4 +56,26 @@ exports.getOne = async (req, res) => {
     .lean();
 
   return res.json({ movie, comment });
+};
+
+exports.remove = async (req, res) => {
+  const isValidId = isValidObjectId(req.params.id);
+
+  if (!isValidId) {
+    return res.status(409).json({
+      message: "ObjectId not valid",
+    });
+  }
+
+  const removeMovie = await movieModel.findOneAndDelete({
+    _id: req.params.id,
+  });
+
+  if (!removeMovie) {
+    return res.status(409).json({
+      message: "course not found",
+    });
+  }
+
+  return res.json(removeMovie);
 };
