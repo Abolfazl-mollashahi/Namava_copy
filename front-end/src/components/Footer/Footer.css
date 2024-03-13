@@ -1,6 +1,3 @@
-
-
-
 /* ----------------------------------------------------- start footer ------------------------------------------------------------ */
 .footer__container {
   width: 100%;
@@ -28,7 +25,6 @@
 
 /* ----------------------------------------------------- part 2 ------------------------------------------------------------ */
 .footer__information {
-  width: 100%;
   padding: 1.9rem;
   display: flex;
   flex-direction: column;
@@ -102,7 +98,7 @@
 .footer__sana__right p {
   color: rgb(139, 139, 139);
   font-size: 13px;
-  width: 42.5rem;
+  /* width: 40rem; */
 }
 .footer__sana__left {
   display: flex;
@@ -169,12 +165,12 @@
   .footer__container {
     display: none;
   }
-  .footer__sana__right p {
+  /* .footer__sana__right p {
     width: 30rem;
-  }
+  } */
 }
 @media only screen and (max-width: 1005px) {
-  .footer__sana__right p {
+  /* .footer__sana__right p {
     width: 30rem;
-  }
+  } */
 }

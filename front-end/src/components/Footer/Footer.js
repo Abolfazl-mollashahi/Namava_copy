@@ -1,5 +1,4 @@
-
-let template = document.createElement("template")
+let template = document.createElement("template");
 template.innerHTML = `
 <link rel="stylesheet" href="./src/components/Footer/Footer.css" />
 
@@ -463,20 +462,17 @@ template.innerHTML = `
         </div>
       </div>
 
-`
+`;
 
-class Footer extends HTMLElement{
-  constructor(){
-    super()
-    this.attachShadow({mode:"open"})
-    this.shadowRoot.appendChild(template.content.cloneNode(true))
-
+class Footer extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
   }
-  connectedCallbak(){
-    console.log('tst');
+  connectedCallbak() {
+    console.log("tst");
   }
 }
 
-export { Footer }
-
-
+export { Footer };
