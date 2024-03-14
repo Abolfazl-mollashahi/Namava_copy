@@ -151,6 +151,7 @@ let DB_slider_1 = [
 ];
 
 // create slide
+let flag = false;
 let cerateSlider = (ShowDataElem, wrapper1) => {
   DB_slider_1.map((item) => {
     let swiper_slide = document.createElement("div");
@@ -158,12 +159,20 @@ let cerateSlider = (ShowDataElem, wrapper1) => {
     swiper_slide.addEventListener("click", (e) => {
       let lineSlides = document.querySelectorAll(".borders");
       let swiper_slides = document.querySelectorAll(".swiper-slide");
-      swiper_slide.id = item.id;
-      Show_close_lineSlide(lineSlides, swiper_slides);
-      // e.target.parentElement.parentElement.parentElement.parentElement.
-      swiper_slide.style.transform = " translateY(20px) ";
-      slide_div.style.display = slide_div ? "block" : "none";
-      ShowDataSlider(item.id, ShowDataElem);
+      if (!flag) {
+        swiper_slide.id = item.id;
+        Show_close_lineSlide(lineSlides, swiper_slides);
+        swiper_slide.style.transform = " translateY(20px) ";
+        slide_div.style.display = slide_div ? "block" : "none";
+        ShowDataSlider(item.id, ShowDataElem);
+        // flag = true;
+      }
+      // flag = false;
+      // swiper_slide.style.transform = " translateY(0px) ";
+      // slide_div.style.display = "none";
+      // let divs = document.querySelectorAll(".div_data_movie");
+      // console.log(divs);
+      // console.log("1", flag);
     });
     let slide_img = document.createElement("img");
     let slide_name = document.createElement("p");
@@ -180,6 +189,12 @@ let cerateSlider = (ShowDataElem, wrapper1) => {
 
 // show data
 let ShowDataSlider = (IdSlide, ShowDataElem) => {
+  // if(flag){
+  //   ShowDataElem.style.display = "none";
+  //   ShowDataElem.innerHTML = "";
+  // }else{
+  // }
+
   let item = DB_slider_1.find((item) => {
     return item.id == IdSlide;
   });
@@ -319,12 +334,12 @@ let Show_close_lineSlide = (lines, divs) => {
 
 // swiper slider all
 document.addEventListener("DOMContentLoaded", function () {
-  var swiper = new Swiper('.swiper', {
+  var swiper = new Swiper(".swiper", {
     slidesPerView: 6,
     spaceBetween: 1000,
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
     },
     breakpoints: {
       501: {
@@ -349,8 +364,7 @@ document.addEventListener("DOMContentLoaded", function () {
       },
     },
   });
-})
-
+});
 
 // Slider-1
 const ShowDataElem1 = document.querySelector(".Show_data_movie1");

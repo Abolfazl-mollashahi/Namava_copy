@@ -16,6 +16,7 @@ body{
   gap:10px;
   position: relative;
   margin-top: -20px;
-  z-index: 2;
+  z-index: 20;
+  /* background-color: red; */
 }
 
