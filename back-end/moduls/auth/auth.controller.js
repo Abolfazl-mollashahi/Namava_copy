@@ -1,6 +1,6 @@
-const userModel = require("./../models/user");
-const registerValidator = require("./../validator/register");
-const banUserModel = require("./../models/ban-phone");
+const userModel = require("./../../models/user");
+const registerValidator = require("./auth.validator");
+const banUserModel = require("./../../models/ban-phone");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
