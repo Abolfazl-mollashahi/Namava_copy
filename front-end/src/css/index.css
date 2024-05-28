@@ -7,3 +7,16 @@
 body{
   background: #121212;
 }
+
+.container{
+  width: 100%;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+  position: relative;
+  margin-top: -20px;
+  z-index: 20;
+  /* background-color: red; */
+}
+

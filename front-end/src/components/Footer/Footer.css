@@ -1,18 +1,17 @@
-
-
-
 /* ----------------------------------------------------- start footer ------------------------------------------------------------ */
 .footer__container {
   width: 100%;
   display: flex;
   flex-direction: column;
+  direction: rtl;
 }
 /* ----------------------------------------------------- part 1 ------------------------------------------------------------ */
 .footer__navbar__fixed {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  padding: 0.8rem;
+  height: 40px;
+  line-height: 40px;
   justify-content: space-evenly;
   color: white;
   background-color: rgb(41, 40, 40);
@@ -26,7 +25,6 @@
 
 /* ----------------------------------------------------- part 2 ------------------------------------------------------------ */
 .footer__information {
-  width: 100%;
   padding: 1.9rem;
   display: flex;
   flex-direction: column;
@@ -100,7 +98,7 @@
 .footer__sana__right p {
   color: rgb(139, 139, 139);
   font-size: 13px;
-  width: 42.5rem;
+  /* width: 40rem; */
 }
 .footer__sana__left {
   display: flex;
@@ -140,8 +138,10 @@
 .footer__fack__container {
   display: none;
   flex-wrap: wrap;
+  direction: rtl;
   width: 100%;
-  padding: 0.2rem;
+  height: 50px;
+  line-height: 20px;
   justify-content: space-evenly;
   color: rgb(139, 139, 139);
   background-color: rgb(41, 40, 40);
@@ -165,12 +165,12 @@
   .footer__container {
     display: none;
   }
-  .footer__sana__right p {
+  /* .footer__sana__right p {
     width: 30rem;
-  }
+  } */
 }
 @media only screen and (max-width: 1005px) {
-  .footer__sana__right p {
+  /* .footer__sana__right p {
     width: 30rem;
-  }
+  } */
 }
