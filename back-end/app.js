@@ -5,6 +5,7 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const flash = require("express-flash");
 const authRoter = require("./moduls/auth/auth.routes");
+const homeRouter = require("./moduls/home/home.routes");
 const { setHeaders } = require("./middleware/setHeader");
 const errorHandller = require("./middleware/errorHandller");
 
@@ -27,7 +28,14 @@ app.use(flash());
 // Set Header (cors Policy)
 app.use(setHeaders);
 
+// Views Folder
+const frontendPath = path.join(__dirname, "..", "front-end");
+app.use(express.static(frontendPath));
+app.set("views", frontendPath);
+app.set("view engine", "html");
+
 // Routes
+app.use("/", homeRouter);
 app.use("/auth", authRoter);
 
 //Not Found Routes
