@@ -1,5 +1,5 @@
 const userModel = require("./../../models/user");
-const registerValidator = require("./auth.validator");
+const { registerValidator, loginValidator } = require("./auth.validator");
 const bcrypt = require("bcrypt");
 const { generateAccessToken } = require("../../utils/token");
 const refreshTokenModel = require("../../models/refreshToken");
@@ -7,6 +7,16 @@ const refreshTokenModel = require("../../models/refreshToken");
 exports.register = async (req, res, next) => {
   try {
     const { name, email, phone, password } = req.body;
+
+    await registerValidator.validate(
+      {
+        name,
+        email,
+        phone,
+        password,
+      },
+      { abortEarly: true }
+    );
 
     const duplicateInformation = await userModel.findOne({ email });
     if (duplicateInformation) {
@@ -35,14 +45,15 @@ exports.register = async (req, res, next) => {
       .status(201)
       .json({ user: userObject, acsessToken, refreshToken });
   } catch (err) {
-    next(err);
+    return next(err);
   }
 };
 
 exports.login = async (req, res, next) => {
   try {
-    const { phone, password } = req.body;
-    const user = await userModel.findOne({ phone });
+    const { email, password } = req.body;
+    await loginValidator.validate({ email, password }, { abortEarly: true });
+    const user = await userModel.findOne({ email });
 
     if (!user) {
       return res.status(403).json({
@@ -56,11 +67,11 @@ exports.login = async (req, res, next) => {
       });
     }
 
-    const acsessToken = generateAccessToken(user);
+    const acsessToken = await generateAccessToken(user);
     const refreshToken = await refreshTokenModel.createToken(user);
 
     return res.json({ acsessToken, refreshToken });
   } catch (err) {
-    next(err);
+    return next(err);
   }
 };
