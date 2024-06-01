@@ -8,9 +8,7 @@ function dbConnected() {
   mongoose
     .connect(process.env.Mongo_URI)
     .then(() => {
-      console.log(
-        `Mongo DB connected Successfully On ${mongoose.connection.host}`
-      );
+      console.log(`Mongo DB connected Successfully`);
     })
     .catch((err) => {
       console.log("DB ERR Connected =>", err);

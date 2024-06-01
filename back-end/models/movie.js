@@ -11,8 +11,8 @@ const movieSchema = new mongoose.Schema(
       required: true,
     },
     cover: {
-      type: String,
-      required: true,
+      path: { type: String, required: true },
+      filename: { type: String, required: true },
     },
     href: {
       type: String,
@@ -49,8 +49,8 @@ const movieSchema = new mongoose.Schema(
       default: 10,
     },
     preview: {
-      type: String,
-      required: true,
+      path: { type: String, required: true },
+      filename: { type: String, required: true },
     },
   },
   { timestamps: true }
