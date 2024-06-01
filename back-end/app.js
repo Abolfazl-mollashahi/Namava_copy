@@ -6,6 +6,7 @@ const session = require("express-session");
 const flash = require("express-flash");
 const authRoter = require("./moduls/auth/auth.routes");
 const homeRouter = require("./moduls/home/home.routes");
+const movieRoter = require("./moduls/movies/movie.routes");
 const { setHeaders } = require("./middleware/setHeader");
 const errorHandller = require("./middleware/errorHandller");
 
@@ -37,6 +38,7 @@ app.set("view engine", "html");
 // Routes
 app.use("/", homeRouter);
 app.use("/auth", authRoter);
+app.use("/movies", movieRoter);
 
 //Not Found Routes
 app.all("*", (req, res, next) => {

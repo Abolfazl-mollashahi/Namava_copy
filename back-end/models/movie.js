@@ -18,7 +18,7 @@ const movieSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    categoryId: {
+    category: {
       type: mongoose.Types.ObjectId,
       ref: "category",
       required: true,
@@ -32,7 +32,6 @@ const movieSchema = new mongoose.Schema(
       required: true,
     },
     actors: [String],
-    grouping: [String],
     releaseYear: {
       type: Number,
       required: true,

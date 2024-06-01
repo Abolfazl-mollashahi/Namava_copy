@@ -9,6 +9,10 @@ const schema = mongoose.Schema({
     type: String,
     required: true,
   },
+  cover: {
+    type: String,
+    required: true,
+  },
 });
 
 const categoryModel = mongoose.model("category", schema);
