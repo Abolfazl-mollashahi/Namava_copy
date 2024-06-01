@@ -14,7 +14,7 @@ exports.multerStorage = (destinations, allowedTypes = /mp4 ||mkv/) => {
     filename: (req, file, cb) => {
       const extname = path.extname(file.originalname);
       const filename = Date.now() + Math.floor(Math.random() * 9999);
-      cb(null, `${extname}${filename}`);
+      cb(null, `${filename}${extname}`);
     },
   });
 
