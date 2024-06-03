@@ -6,6 +6,10 @@ const movieSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    coverDescription: {
+      type: String,
+      required: true,
+    },
     description: {
       type: String,
       required: true,
@@ -14,17 +18,13 @@ const movieSchema = new mongoose.Schema(
       path: { type: String, required: true },
       filename: { type: String, required: true },
     },
-    href: {
-      type: String,
-      required: true,
-    },
     category: {
       type: mongoose.Types.ObjectId,
       ref: "category",
       required: true,
     },
     time: {
-      type: Number,
+      type: String,
       required: true,
     },
     director: {
@@ -42,15 +42,11 @@ const movieSchema = new mongoose.Schema(
     },
     translation: {
       type: String,
-      default: "OriginalLanguage",
+      default: "translated",
     },
     ageLimit: {
       type: Number,
       default: 10,
-    },
-    preview: {
-      path: { type: String, required: true },
-      filename: { type: String, required: true },
     },
   },
   { timestamps: true }

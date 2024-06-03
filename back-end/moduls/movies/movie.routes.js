@@ -2,14 +2,15 @@ const express = require("express");
 const controller = require("./movie.controller");
 const { multerStorage } = require("./../../middleware/uploader");
 
-const movieUpload = multerStorage("/public/movies");
+const movieUpload = multerStorage("/public/movie", /mp4|mkv|jpg|png|jpeg|webp/);
 const categoryUpload = multerStorage("/public/category", /jpg|png|jpeg|webp/);
 
 const router = express.Router();
 
+router.route("/").get(controller.getMovie);
+
 router
-  .route("/")
-  .get(controller.getMovie)
+  .route("/:categoryID")
   .post(
     movieUpload.fields([{ name: "cover" }, { name: "preview" }]),
     controller.addMovies
