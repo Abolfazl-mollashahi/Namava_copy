@@ -2,8 +2,8 @@ const express = require("express");
 const controller = require("./movie.controller");
 const { multerStorage } = require("./../../middleware/uploader");
 
-const movieUpload = multerStorage("./public/movie");
-const categoryUpload = multerStorage("./public/category", /jpg|png|jpeg|webp/);
+const movieUpload = multerStorage("/public/movies");
+const categoryUpload = multerStorage("/public/category", /jpg|png|jpeg|webp/);
 
 const router = express.Router();
 

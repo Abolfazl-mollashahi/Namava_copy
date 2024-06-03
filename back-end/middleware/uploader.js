@@ -3,6 +3,8 @@ const fs = require("fs");
 const path = require("path");
 
 exports.multerStorage = (destinations, allowedTypes = /mp4 ||mkv/) => {
+  destinations = path.join(__dirname, "..", "..", "front-end") + destinations;
+
   if (!fs.existsSync(destinations)) {
     fs.mkdirSync(destinations);
   }
