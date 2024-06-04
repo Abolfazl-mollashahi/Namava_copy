@@ -4,11 +4,26 @@ const app = require("./app");
 
 const port = process.env.PORT;
 
-(async () => {
-  await mongoose.connect(process.env.Mongo_URI);
-  console.log("Database connected successfully");
-})();
+function dbConnected() {
+  mongoose
+    .connect(process.env.Mongo_URI)
+    .then(() => {
+      console.log(`Mongo DB connected Successfully`);
+    })
+    .catch((err) => {
+      console.log("DB ERR Connected =>", err);
+      process.exit(1);
+    });
+}
 
-app.listen(port, () => {
-  console.log(`Server Running On Port ${port}`);
-});
+function startServer() {
+  let port = process.env.PORT || 4000;
+  app.listen(port, () => {
+    console.log(`Server Running On Port ${port}`);
+  });
+}
+
+function run() {
+  dbConnected(), startServer();
+}
+run();

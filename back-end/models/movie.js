@@ -6,25 +6,25 @@ const movieSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    coverDescription: {
+      type: String,
+      required: true,
+    },
     description: {
       type: String,
       required: true,
     },
     cover: {
-      type: String,
-      required: true,
+      path: { type: String, required: true },
+      filename: { type: String, required: true },
     },
-    href: {
-      type: String,
-      required: true,
-    },
-    categoryId: {
+    category: {
       type: mongoose.Types.ObjectId,
       ref: "category",
       required: true,
     },
     time: {
-      type: Number,
+      type: String,
       required: true,
     },
     director: {
@@ -32,7 +32,6 @@ const movieSchema = new mongoose.Schema(
       required: true,
     },
     actors: [String],
-    grouping: [String],
     releaseYear: {
       type: Number,
       required: true,
@@ -43,15 +42,11 @@ const movieSchema = new mongoose.Schema(
     },
     translation: {
       type: String,
-      default: "OriginalLanguage",
+      default: "translated",
     },
     ageLimit: {
       type: Number,
       default: 10,
-    },
-    preview: {
-      type: String,
-      required: true,
     },
   },
   { timestamps: true }

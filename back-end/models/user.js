@@ -6,10 +6,6 @@ const schema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    username: {
-      type: String,
-      required: true,
-    },
     email: {
       type: String,
       required: true,
@@ -32,6 +28,6 @@ const schema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const model = mongoose.model("user", schema);
+const model = mongoose.model("User", schema);
 
 module.exports = model;
