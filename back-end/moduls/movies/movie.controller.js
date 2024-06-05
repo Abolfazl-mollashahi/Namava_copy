@@ -3,7 +3,10 @@ const movieModel = require("./../../models/movie");
 const previewModel = require("./../../models/preview");
 const { categoryValidator } = require("./movie.validator");
 
-exports.getMovie = async (req, res, next) => {
+exports.getAllMovie = async (req, res, next) => {
+  //codes
+};
+exports.getMovieInformation = async (req, res, next) => {
   //codes
 };
 
@@ -72,7 +75,17 @@ exports.addMovies = async (req, res, next) => {
   }
 };
 
-exports.getCategory = async (req, res) => {
+exports.getAllCategory = async (req, res) => {
+  const categories = await categoryModel.find({}).lean();
+
+  if (!categories) {
+    return res.status(404).json({ message: "No Category Created yet" });
+  }
+
+  return res.json({ categories });
+};
+
+exports.getCategoryInformation = async (req, res) => {
   //
 };
 
