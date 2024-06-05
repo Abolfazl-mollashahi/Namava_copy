@@ -104,7 +104,15 @@ exports.getAllCategory = async (req, res) => {
 };
 
 exports.getCategoryInformation = async (req, res) => {
-  //
+  const { href } = req.params;
+
+  const category = await categoryModel.findOne({ href });
+
+  if (!category) {
+    return res.status(404).json({ message: "Category not found" });
+  }
+
+  return res.json({ category });
 };
 
 exports.addCategoyr = async (req, res, next) => {

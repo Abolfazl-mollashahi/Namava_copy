@@ -14,7 +14,7 @@ router
   .get(controller.getAllCategory)
   .post(categoryUpload.single("cover"), controller.addCategoyr);
 
-router.route("/category/:categoryName").get(controller.getCategoryInformation);
+router.route("/category/:href").get(controller.getCategoryInformation);
 router
   .route("/add/:categoryID")
   .post(
