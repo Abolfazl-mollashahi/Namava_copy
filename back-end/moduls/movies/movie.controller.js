@@ -4,10 +4,28 @@ const previewModel = require("./../../models/preview");
 const { categoryValidator } = require("./movie.validator");
 
 exports.getAllMovie = async (req, res, next) => {
-  //codes
+  const movies = await movieModel.find({}).lean();
+
+  if (!movies) {
+    return res.status(404).json({ message: "No Movies Uploaded yet" });
+  }
+
+  return res.json({ movies });
 };
 exports.getMovieInformation = async (req, res, next) => {
-  //codes
+  const { movieID } = req.params;
+  if (!movieID) {
+    return res.status(404).json({ message: "Movie not Found" });
+  }
+
+  const movie = await movieModel
+    .findOne({ _id: movieID })
+    .populate("category", "title href");
+  if (!movie) {
+    return res.status(404).json({ message: "Movie not Found" });
+  }
+
+  return res.json({ movie });
 };
 
 exports.addMovies = async (req, res, next) => {
