@@ -14,6 +14,8 @@ router
   .get(controller.getAllCategory)
   .post(categoryUpload.single("cover"), controller.addCategoyr);
 
+router.route("/latest").get(controller.latestMovies);
+
 router.route("/category/:href").get(controller.getCategoryInformation);
 router
   .route("/add/:categoryID")

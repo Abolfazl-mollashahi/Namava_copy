@@ -4,28 +4,36 @@ const previewModel = require("./../../models/preview");
 const { categoryValidator } = require("./movie.validator");
 
 exports.getAllMovie = async (req, res, next) => {
-  const movies = await movieModel.find({}).lean();
+  try {
+    const movies = await movieModel.find({}).lean();
 
-  if (!movies) {
-    return res.status(404).json({ message: "No Movies Uploaded yet" });
+    if (!movies) {
+      return res.status(404).json({ message: "No Movies Uploaded yet" });
+    }
+
+    return res.json({ movies });
+  } catch (err) {
+    next(err);
   }
-
-  return res.json({ movies });
 };
 exports.getMovieInformation = async (req, res, next) => {
-  const { movieID } = req.params;
-  if (!movieID) {
-    return res.status(404).json({ message: "Movie not Found" });
-  }
+  try {
+    const { movieID } = req.params;
+    if (!movieID) {
+      return res.status(404).json({ message: "Movie not Found" });
+    }
 
-  const movie = await movieModel
-    .findOne({ _id: movieID })
-    .populate("category", "title href");
-  if (!movie) {
-    return res.status(404).json({ message: "Movie not Found" });
-  }
+    const movie = await movieModel
+      .findOne({ _id: movieID })
+      .populate("category", "title href");
+    if (!movie) {
+      return res.status(404).json({ message: "Movie not Found" });
+    }
 
-  return res.json({ movie });
+    return res.json({ movie });
+  } catch (err) {
+    next(err);
+  }
 };
 
 exports.addMovies = async (req, res, next) => {
@@ -93,26 +101,34 @@ exports.addMovies = async (req, res, next) => {
   }
 };
 
-exports.getAllCategory = async (req, res) => {
-  const categories = await categoryModel.find({}).lean();
+exports.getAllCategory = async (req, res, next) => {
+  try {
+    const categories = await categoryModel.find({}).lean();
 
-  if (!categories) {
-    return res.status(404).json({ message: "No Category Created yet" });
+    if (!categories) {
+      return res.status(404).json({ message: "No Category Created yet" });
+    }
+
+    return res.json({ categories });
+  } catch (err) {
+    next(err);
   }
-
-  return res.json({ categories });
 };
 
-exports.getCategoryInformation = async (req, res) => {
-  const { href } = req.params;
+exports.getCategoryInformation = async (req, res, next) => {
+  try {
+    const { href } = req.params;
 
-  const category = await categoryModel.findOne({ href });
+    const category = await categoryModel.findOne({ href });
 
-  if (!category) {
-    return res.status(404).json({ message: "Category not found" });
+    if (!category) {
+      return res.status(404).json({ message: "Category not found" });
+    }
+
+    return res.json({ category });
+  } catch (err) {
+    next(err);
   }
-
-  return res.json({ category });
 };
 
 exports.addCategoyr = async (req, res, next) => {
@@ -138,6 +154,16 @@ exports.addCategoyr = async (req, res, next) => {
     });
 
     return res.status(201).json({ message: "category created" });
+  } catch (err) {
+    next(err);
+  }
+};
+
+exports.latestMovies = async (req, res, next) => {
+  try {
+    const movies = await movieModel.find({}).sort({ releaseYear: -1 }).limit(5);
+
+    return res.json(movies);
   } catch (err) {
     next(err);
   }
