@@ -7,18 +7,22 @@ const categoryUpload = multerStorage("/public/category", /jpg|png|jpeg|webp/);
 
 const router = express.Router();
 
-router.route("/").get(controller.getMovie);
+router.route("/").get(controller.getAllMovie);
 
 router
-  .route("/:categoryID")
+  .route("/category")
+  .get(controller.getAllCategory)
+  .post(categoryUpload.single("cover"), controller.addCategoyr);
+
+router.route("/latest").get(controller.latestMovies);
+
+router.route("/category/:href").get(controller.getCategoryInformation);
+router
+  .route("/add/:categoryID")
   .post(
     movieUpload.fields([{ name: "cover" }, { name: "preview" }]),
     controller.addMovies
   );
 
-router
-  .route("/category")
-  .get(controller.getCategory)
-  .post(categoryUpload.single("cover"), controller.addCategoyr);
-
+router.route("/:movieID").get(controller.getMovieInformation);
 module.exports = router;
