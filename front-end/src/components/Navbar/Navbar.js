@@ -78,7 +78,7 @@ template.innerHTML = `
         <hr>
         <li><a href="#">سریال ها</a></li>
         <hr>
-        <li><a href="#">تازه ها</a></li>
+        <li><a href="./../front-end/NamavaMostVisited.html">تازه ها</a></li>
         <hr>
         <li><a href="#">دسته بندی ها</a></li>
         <hr>
