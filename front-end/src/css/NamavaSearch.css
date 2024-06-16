@@ -3,7 +3,88 @@
     padding: 0;
     box-sizing: border-box;
   }
-  .container {
+  html{
     background-color: rgb(20, 20, 20);
-    direction: rtl;
+  }
+
+  .container{
+    width: 100%;
+    display: flex;
+    padding: 7rem 3rem 10rem 3rem;
+  }
+  
+    .search{
+      width: 75%;
+      height: 23rem;
+      display: flex;
+      flex-direction: column;
+      margin-right: 1rem;
+      }
+      .input__container{
+  background-color: #37383e;
+  color: #ffffff;
+  height: 60px;
+  width: 100%;
+  line-height: 24px;
+  padding: 16px 24px;
+  border-radius: 12px;
+  direction: rtl;
+  display: flex;
+  fill: #ffffff;
+}
+
+.input__search{
+  width: 83%;
+  margin-right:0.5rem ;
+font-family: b yekan;
+background-color: #37383e;
+border: none;
+outline: none;
+color: #ffffff;
+font-size: 18px;
+}
+.svg__Farem{
+  /* width: 100%; */
+  display: flex;
+ justify-content: center;
+  margin: 4rem 4rem 0 4rem ;
+}
+.text__Farem{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  color: #aaaaaa;
+  text-align: center;
+}
+.text__Farem p {
+  width: 60%;
+  font-size: 16px;
+  font-family: b yekan;
+  font-weight: 700;
+}
+
+/* filters */
+.filters{
+  width: 17rem;
+  height: 23rem;
+  display: flex;
+  padding: 16px 24px;
+  border-radius: 12px;
+  background-color: #37383e;
+  }
+  .text__baner{
+    display: flex;
+    width: 100%;
+    height: 2rem;
+    justify-content: space-between;
+    font-size: 17px;
+    font-family: b yekan;
+    font-weight: 400;
+  }
+  .text__baner p {
+    color: #ffffff;
+  }
+  .text__baner a {
+    text-decoration : none;
+    color: rgb(0, 136, 255);
   }
