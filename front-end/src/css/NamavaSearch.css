@@ -68,18 +68,28 @@ font-size: 18px;
   width: 17rem;
   height: 23rem;
   display: flex;
+  flex-direction: column;
   padding: 16px 24px;
   border-radius: 12px;
   background-color: #37383e;
+  color: #ffffff;
+ font-size: 17px;
+    font-family: b yekan;
+    font-weight: 400;
   }
+ /* <!-- text__baner --> */
   .text__baner{
     display: flex;
     width: 100%;
     height: 2rem;
     justify-content: space-between;
-    font-size: 17px;
-    font-family: b yekan;
-    font-weight: 400;
+  
+    margin-bottom: 0.5rem;
+  }
+  .border__filters{
+    width: 100%;
+    height: 0.1px;
+background-color: #747272;
   }
   .text__baner p {
     color: #ffffff;
@@ -88,3 +98,29 @@ font-size: 18px;
     text-decoration : none;
     color: rgb(0, 136, 255);
   }
+
+ /* <!-- check box --> */
+.check__box{
+  display: flex;
+  direction: rtl;
+  margin: 0 0 0.2rem 0;
+
+}
+
+.check__box div {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0 0.5rem 0.5rem;
+}
+.input__check{
+  margin-left: 0.4rem;
+}
+.box__filters{
+  display: flex;
+  justify-content: space-between;
+margin: 0.8rem 0;
+fill: #ffffff;
+}
+.box__filters svg{
+  transform: rotate(180deg);
+}
