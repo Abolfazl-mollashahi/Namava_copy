@@ -25,14 +25,12 @@
   background-size: cover;
 }
 
-.header__container--text {
-  display: block;
+.main__container--text {
   color: white;
   font-size: 25px;
   font-family: b yekan;
   font-weight: 200;
-  transform: translateY(25rem);
-  margin-right: 2rem;
+  margin: 0.5rem 2rem 1.5rem 0;
 }
 
 /* start main */
